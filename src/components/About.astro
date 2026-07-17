@@ -1,0 +1,121 @@
+---
+// About - Awwwards asymmetric editorial layout, staggered depth, max-w-7xl
+const stats = [
+  { value: "10+", label: "Años de experiencia" },
+  { value: "5000+", label: "Equipos reparados" },
+];
+
+const features = [
+  {
+    index: "01",
+    title: "Trato directo",
+    description:
+      "Hablás siempre conmigo, de principio a fin. Sin cadenas de mails ni intermediarios: yo diagnostico, yo reparo, yo te explico qué pasó.",
+  },
+  {
+    index: "02",
+    title: "Presupuesto antes de reparar",
+    description:
+      "No hago nada sin que sepas el costo primero. Te aviso el diagnóstico y el precio antes de tocar el equipo, para que decidas con tranquilidad.",
+  },
+  {
+    index: "03",
+    title: "Reparaciones al día",
+    description:
+      "Trabajo con dedicación exclusiva a cada equipo, así que los tiempos de espera son cortos comparados con un service con muchos clientes en cola.",
+  },
+];
+---
+
+<section
+  id="experiencia"
+  class="relative pt-24 pb-12 sm:pt-24 sm:pb-16 overflow-hidden dark:bg-[#0A1122] bg-[#f4f6f9]/50 transition-colors duration-300 scroll-mt-24"
+>
+  {/* Subtly animated light blob on the right & center */}
+  <div
+    class="absolute -bottom-20 right-0 w-[600px] h-[600px] bg-blue-600/[0.01] rounded-full blur-[150px] pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-blue-600/[0.03] rounded-full blur-[120px] pointer-events-none z-0"
+  >
+  </div>
+
+  <div class="mx-auto max-w-[90rem] px-8 sm:px-12 lg:px-20 relative z-10">
+    <div class="grid lg:grid-cols-12 gap-16 items-stretch">
+      {/* Left Column: Title & Stats Grid (5 cols) */}
+      <div data-reveal class="lg:col-span-5 flex flex-col justify-between lg:h-full space-y-8 lg:space-y-0">
+        <div>
+          <span
+            class="text-xs font-bold text-blue-500 dark:text-blue-400 uppercase tracking-[0.2em] mb-4 block"
+            >Experiencia</span
+          >
+          <h2
+            class="text-4xl md:text-5xl font-normal tracking-tight text-[hsl(var(--fg))] font-headline leading-[1.1]"
+          >
+            Un servicio técnico de confianza en tu zona
+          </h2>
+          <p class="mt-6 text-base text-[hsl(var(--fg-muted))] leading-relaxed">
+            Soy técnico y trabajo de forma independiente en el mantenimiento y reparación
+            de dispositivos. Aprendí el oficio reparando equipo por equipo, y hoy sigo
+            eligiendo hacerlo así: con tiempo real para diagnosticar bien antes de dar
+            un presupuesto.
+          </p>
+        </div>
+
+        {/* Stats Grid */}
+        <div data-stagger class="grid grid-cols-2 gap-6 w-full pt-4 lg:pt-0">
+          {
+            stats.map((stat) => (
+              <div data-reveal class="card-hover liquid-glass rounded-2xl p-6 w-full text-center sm:text-left">
+                <div class="text-3xl font-bold tracking-tight text-[hsl(var(--fg))] font-headline">
+                  {stat.value}
+                </div>
+                <div class="mt-1 text-xs text-[hsl(var(--fg-muted))] font-medium tracking-wide">
+                  {stat.label}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      {/* Right Column: Cascading Features List (7 cols) */}
+      <div data-stagger class="lg:col-span-7 space-y-6 lg:pl-8">
+        {
+          features.map((feature, idx) => {
+            // Staggered translation offsets and rotations on hover for tactile feel
+            const hoverClass =
+              idx === 0
+                ? "lg:hover:-rotate-1"
+                : idx === 1
+                  ? "lg:translate-x-4 lg:hover:rotate-1"
+                  : "lg:-translate-x-2 lg:hover:-rotate-1";
+
+            return (
+              <div
+                data-reveal
+                class={`card-hover liquid-glass rounded-3xl p-8 card-glow min-h-[150px] sm:min-h-[130px] flex items-center ${hoverClass}`}
+              >
+                <div class="flex items-start gap-6">
+                  {/* Index Monospace Indicator */}
+                  <div class="flex w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 items-center justify-center text-blue-500 dark:text-blue-400 font-mono text-xs font-bold shrink-0">
+                    {feature.index}
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold text-[hsl(var(--fg))] mb-2 flex items-center gap-3">
+                      {feature.title}
+                    </h3>
+                    <p class="text-sm leading-relaxed text-[hsl(var(--fg-muted))]">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</section>

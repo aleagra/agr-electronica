@@ -1,0 +1,581 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========== CSS VARIABLES - LIGHT THEME (default) ========== */
+:root {
+  --bg: 220 33% 97%;
+  --bg-alt: 220 33% 94%;
+  --surface: 0 0% 100%;
+  --surface-elevated: 0 0% 100%;
+  --fg: 222 47% 11%;
+  --fg-muted: 215 16% 47%;
+  --fg-faint: 215 13% 65%;
+  --hero-sub: 215 16% 47%;
+  --accent: #0052FF;
+  --accent-cyan: #0284C7;
+  --border: 220 13% 91%;
+  --border-strong: 220 13% 85%;
+
+  --liquid-bg: rgba(255, 255, 255, 0.65);
+  --liquid-border: rgba(0, 0, 0, 0.07);
+  --liquid-inset-shadow: rgba(255, 255, 255, 0.9);
+  --liquid-glow-1: rgba(0, 0, 0, 0.04);
+  --liquid-glow-2: rgba(0, 0, 0, 0.01);
+
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-hover-border: rgba(0, 82, 255, 0.25);
+  --card-hover-shadow: 0 8px 32px rgba(0, 82, 255, 0.06);
+
+  --pricing-card-bg: rgba(255, 255, 255, 0.8);
+  --pricing-card-border: rgba(0, 0, 0, 0.08);
+  --pricing-card-pro-bg: linear-gradient(135deg, rgba(0,82,255,0.05), rgba(0,165,233,0.03));
+  --pricing-tier-color: var(--fg-muted);
+  --pricing-desc-color: var(--fg-faint);
+  --pricing-list-color: var(--fg);
+  --pricing-check-bg: rgba(0, 82, 255, 0.08);
+
+  --header-bg: rgba(244, 246, 249, 0.85);
+  --header-border: rgba(0, 0, 0, 0.06);
+
+  --skeleton-bg: rgba(0, 0, 0, 0.06);
+  --skeleton-pulse-from: 0.06;
+  --skeleton-pulse-to: 0.1;
+
+  --input-bg: rgba(0, 0, 0, 0.025);
+  --input-border: rgba(0, 0, 0, 0.08);
+  --input-focus-border: var(--accent);
+  --input-focus-ring: rgba(0, 82, 255, 0.15);
+
+  --guide-line: rgba(0, 0, 0, 0.04);
+
+  --text-on-accent: #ffffff;
+
+  --section-divider: rgba(0, 0, 0, 0.06);
+}
+
+/* ========== CSS VARIABLES - DARK THEME ========== */
+html.dark {
+  --bg: 224 71% 4%;
+  --bg-alt: 224 71% 6%;
+  --surface: 224 71% 7%;
+  --surface-elevated: 224 71% 9%;
+  --fg: 210 40% 98%;
+  --fg-muted: 215 20% 70%;
+  --fg-faint: 215 16% 50%;
+  --hero-sub: 215 20% 80%;
+  --accent: #00a2ff;
+  --accent-cyan: #00f5ff;
+  --border: 217 33% 15%;
+  --border-strong: 217 33% 22%;
+
+  --liquid-bg: rgba(13, 22, 41, 0.4);
+  --liquid-border: rgba(0, 162, 255, 0.12);
+  --liquid-inset-shadow: rgba(255, 255, 255, 0.03);
+  --liquid-glow-1: rgba(0, 162, 255, 0.2);
+  --liquid-glow-2: rgba(0, 162, 255, 0.05);
+
+  --card-bg: rgba(13, 22, 41, 0.45);
+  --card-border: rgba(0, 162, 255, 0.15);
+  --card-hover-border: rgba(0, 162, 255, 0.45);
+  --card-hover-shadow: 0 16px 48px rgba(0, 162, 255, 0.08);
+
+  --pricing-card-bg: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+  --pricing-card-border: rgba(255,255,255,0.1);
+  --pricing-card-pro-bg: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.55));
+  --pricing-tier-color: rgba(255,255,255,0.5);
+  --pricing-desc-color: rgba(255,255,255,0.4);
+  --pricing-list-color: rgba(255,255,255,0.7);
+  --pricing-check-bg: rgba(255,255,255,0.1);
+
+  --header-bg: rgba(5, 8, 20, 0.8);
+  --header-border: rgba(255, 255, 255, 0.04);
+
+  --skeleton-bg: rgba(255, 255, 255, 0.06);
+  --skeleton-pulse-from: 0.08;
+  --skeleton-pulse-to: 0.15;
+
+  --input-bg: rgba(255, 255, 255, 0.03);
+  --input-border: rgba(255, 255, 255, 0.06);
+  --input-focus-border: var(--accent);
+  --input-focus-ring: rgba(0, 162, 255, 0.2);
+
+  --guide-line: rgba(0, 162, 255, 0.08);
+
+  --text-on-accent: #ffffff;
+
+  --section-divider: rgba(0, 162, 255, 0.08);
+}
+
+/* ========== BASE ========== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+html, body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: hsl(var(--bg));
+  color: hsl(var(--fg));
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Grid pattern is handled exclusively by the fixed overlay div in Layout.astro */
+
+::selection {
+  background: rgba(0, 82, 255, 0.2);
+}
+
+html.dark ::selection {
+  background: rgba(37, 99, 235, 0.3);
+}
+
+/* ========== HEADLINE FONT (General Sans from Fontshare) ========== */
+.font-headline {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+/* ========== LIQUID GLASS ========== */
+.liquid-glass {
+  background: var(--liquid-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--liquid-border);
+  box-shadow: inset 0 1px 1px var(--liquid-inset-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ========== SHINY GRADIENT HEADLINE ========== */
+.gradient-shiny {
+  background-image: linear-gradient(
+    to left,
+    #2563eb,
+    #0EA5E9,
+    #60a5fa,
+    #2563eb
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+html.dark .gradient-shiny {
+  background-image: linear-gradient(
+    to left,
+    #2563eb,
+    #0ea5e9,
+    #38bdf8,
+    #2563eb
+  );
+}
+
+.animate-shiny {
+  animation: shiny 6s linear infinite;
+}
+
+@keyframes shiny {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ========== SKELETON ========== */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: var(--skeleton-pulse-from); }
+  50% { opacity: var(--skeleton-pulse-to); }
+}
+.animate-skeleton {
+  background: var(--skeleton-bg);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+/* ========== CARD HOVER ========== */
+.card-glow {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: all 0.5s cubic-bezier(.22, 1, .36, 1);
+}
+.card-glow:hover {
+  border-color: var(--card-hover-border);
+  transform: translateY(-2px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* ========== MARQUEE ========== */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* ========== FADE-IN ========== */
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* ========== FORM INPUTS ========== */
+.input-field {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  border-radius: 0.625rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
+  color: hsl(var(--fg));
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+html:not(.dark) .input-field {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(37, 99, 235, 0.12);
+}
+.input-field::placeholder {
+  color: hsl(var(--fg-faint));
+  font-size: 0.8125rem;
+}
+.input-field:focus {
+  outline: none;
+  background: rgba(37, 99, 235, 0.04);
+  border-color: rgba(37, 99, 235, 0.5);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12), 0 0 12px rgba(37, 99, 235, 0.08);
+}
+html:not(.dark) .input-field:focus {
+  background: rgba(37, 99, 235, 0.02);
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Autocomplete/Autofill styles to prevent solid browser background overlays on focus */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #040a17 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ========== SECTION DIVIDER ========== */
+.section-divider {
+  height: 1px;
+  background: var(--section-divider);
+  transition: background 0.3s ease;
+}
+
+/* ========== PRICING SECTION CSS ========== */
+.c3-pricing-section {
+  position: relative;
+  padding: 40px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+.c3-watermark-container {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+  margin-top: 40px;
+  z-index: 2;
+}
+.c3-watermark-main {
+  font-size: 9rem;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  filter: url(#c3-noise);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'General Sans', system-ui, sans-serif;
+}
+.c3-watermark-line-1 { color: hsl(var(--fg)); }
+.c3-watermark-line-2 {
+  background: linear-gradient(to right, var(--accent), var(--accent-cyan), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.c3-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 60px;
+  transform: translateX(20px);
+  position: relative;
+  z-index: 3;
+}
+.c3-card {
+  background: var(--pricing-card-bg);
+  backdrop-filter: blur(14px) brightness(0.91);
+  border: 1px solid var(--pricing-card-border);
+  border-radius: 20px;
+  padding: 40px 24px;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.6s cubic-bezier(.22,1,.36,1);
+  overflow: hidden;
+  position: relative;
+}
+.c3-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--liquid-glow-1) 0%, transparent 50%);
+  pointer-events: none;
+}
+.c3-card:hover {
+  border-color: var(--card-hover-border);
+  transform: translateY(-8px) scale(1.01);
+}
+.c3-card-pro {
+  background: var(--pricing-card-pro-bg);
+}
+.c3-tier-small { font-size: 1rem; font-weight: 400; color: var(--pricing-tier-color); }
+.c3-tier-large { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.02em; color: hsl(var(--fg)); margin-top: 8px; }
+.c3-desc { font-size: 0.85rem; color: var(--pricing-desc-color); min-height: 3em; margin-top: 12px; margin-bottom: 32px; line-height: 1.5; }
+.c3-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: var(--pricing-list-color);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.c3-check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--pricing-check-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.c3-check svg {
+  color: var(--accent);
+}
+.c3-btn {
+  background: hsl(var(--fg));
+  color: hsl(var(--bg));
+  padding: 10px 28px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-top: auto;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+  transition: all 0.3s cubic-bezier(.22,1,.36,1);
+}
+.c3-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+.c3-toggle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 32px;
+  padding-right: 20px;
+}
+.c3-toggle {
+  width: 48px;
+  height: 26px;
+  background: hsl(var(--border-strong));
+  border-radius: 100px;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s cubic-bezier(.4,0,.2,1);
+  padding: 0;
+}
+.c3-toggle-knob {
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: all 0.3s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.c3-toggle.active { background: var(--accent); }
+.c3-toggle.active .c3-toggle-knob { transform: translateX(22px); background: white; }
+
+@media (max-width: 1024px) {
+  .c3-watermark-main { font-size: 3rem; filter: none; }
+  .c3-watermark-line-2 { background: none; -webkit-text-fill-color: var(--accent-cyan); color: var(--accent-cyan); }
+  .c3-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    transform: none;
+    width: 100vw;
+    padding: 0 20px;
+    gap: 16px;
+    scrollbar-width: none;
+  }
+  .c3-grid::-webkit-scrollbar { display: none; }
+  .c3-card { flex: 0 0 300px; scroll-snap-align: center; }
+  .c3-toggle-wrap { justify-content: center; padding-right: 0; }
+}
+
+/* ========== ANIMATION SYSTEM (Emil Kowalski guidelines) ========== */
+
+/* Custom easing curves — built-in CSS easings are too weak */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Scroll Reveal ── */
+/* Start: translateY(16px) + opacity:0 — nothing appears from nothing (scale 0 rule) */
+@keyframes reveal-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  /* GPU-only properties: transform + opacity only */
+}
+
+[data-reveal].is-visible {
+  animation: reveal-up 500ms var(--ease-out) forwards;
+}
+
+/* Stagger: 50ms between siblings (short enough to feel snappy) */
+[data-stagger] > *:nth-child(1)  { animation-delay: 0ms;   }
+[data-stagger] > *:nth-child(2)  { animation-delay: 60ms;  }
+[data-stagger] > *:nth-child(3)  { animation-delay: 120ms; }
+[data-stagger] > *:nth-child(4)  { animation-delay: 180ms; }
+[data-stagger] > *:nth-child(5)  { animation-delay: 240ms; }
+[data-stagger] > *:nth-child(6)  { animation-delay: 300ms; }
+[data-stagger] > *:nth-child(n+7) { animation-delay: 360ms; }
+
+/* ── Hero Entrance ── */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: hero-fade-up 600ms var(--ease-out) forwards;
+}
+.hero-animate-1 { animation-delay: 80ms;  }
+.hero-animate-2 { animation-delay: 200ms; }
+.hero-animate-3 { animation-delay: 320ms; }
+.hero-animate-4 { animation-delay: 440ms; }
+.hero-animate-5 { animation-delay: 560ms; }
+
+/* ── Button press feedback (100-160ms per skill spec) ── */
+/* Scale-on-active: subtle (0.97), instantly responsive */
+.btn-press {
+  transition: transform 140ms var(--ease-out), opacity 140ms var(--ease-out);
+  will-change: transform;
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn-press:hover { opacity: 0.9; }
+}
+.btn-press:active { transform: scale(0.97); }
+
+/* ── Card hover: elevation + border intensification ── */
+/* Only on non-touch devices per skill rule */
+@media (hover: hover) and (pointer: fine) {
+  .card-hover {
+    transition:
+      transform 220ms var(--ease-out),
+      box-shadow 220ms var(--ease-out),
+      border-color 220ms ease;
+    will-change: transform;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0, 162, 255, 0.12);
+    border-color: rgba(0, 162, 255, 0.35) !important;
+  }
+}
+
+/* ── Navbar scroll transition ── */
+#main-header {
+  transition: height 250ms var(--ease-out), background-color 250ms var(--ease-out), border-color 250ms var(--ease-out), backdrop-filter 250ms var(--ease-out);
+  will-change: height, background-color;
+}
+.header-scrolled#main-header {
+  height: 3.5rem !important; /* 56px instead of 64px */
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: blur(16px) !important;
+}
+html.dark .header-scrolled#main-header {
+  background-color: rgba(2, 8, 22, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ── Dynamic Reviews Entrance ── */
+.review-reveal-item {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out);
+  will-change: opacity, transform;
+}
+.review-reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Reduced motion ── */
+/* Keep opacity; remove positional movement per Emil's spec */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal].is-visible,
+  .hero-animate,
+  .btn-press,
+  .card-hover {
+    animation: none !important;
+    transition: opacity 200ms ease !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+

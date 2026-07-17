@@ -1,0 +1,9 @@
+node_modules
+.agents/
+.agents_inactivos/
+skills-lock.json
+.astro/
+dist/
+.env
+.env.*
+task.md

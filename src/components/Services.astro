@@ -1,0 +1,161 @@
+---
+// Services - Bento grid layout 2 + 3, high density, max-w-7xl
+const services = [
+  {
+    index: "01",
+    title: "Arreglo de Smart TV y LED",
+    description:
+      "¿No prende, se escucha pero no se ve, o tiene líneas en la pantalla? Cambio las tiras de LED y reparo la imagen de televisores de cualquier marca.",
+    icon: "M6 20.25h12m-7.5-3v3m3-3v3m-11.25-3h16.5V5.25H3.75v11.25zm0 0h16.5",
+  },
+  {
+    index: "02",
+    title: "Reparación de Computadoras (PC)",
+    description:
+      "Dejo tu computadora de escritorio como nueva. Resuelvo problemas de encendido, fallas de componentes, virus y lentitud para que te ande rápida otra vez.",
+    icon: "M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25",
+  },
+  {
+    index: "03",
+    title: "Notebooks y Laptops",
+    description:
+      "Arreglo cualquier modelo de portátil. Cambio pantallas rotas, teclados que no andan, baterías gastadas y fallas en la placa madre.",
+    icon: "M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25M3.75 16.5h16.5M21.75 19.5H2.25",
+  },
+  {
+    index: "04",
+    title: "Limpieza interna y Temperatura",
+    description:
+      "Si tu computadora o notebook junta mucha tierra, levanta temperatura o hace ruido el ventilador, le hago una limpieza profunda y le cambio la pasta térmica para que no se queme.",
+    icon: "M13.5 16.875h3.375m-1.688-10.13l-2.25 2.25m3.938-2.25l-2.25 2.25M6.75 6.75h.008v.008H6.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM12 3v18M3 12h18",
+  },
+  {
+    index: "05",
+    title: "Trabajo con Todas las Marcas",
+    description:
+      "No importa qué marca sea tu equipo, traelo igual. Hago un diagnóstico honesto y uso repuestos buenos para que te dure.",
+    icon: "M9 12.75L11.25 15 15 9.75M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z",
+  },
+];
+---
+
+<section
+  id="servicios"
+  class="relative pt-12 pb-24 sm:pt-16 sm:pb-24 overflow-hidden dark:bg-[#050B14] bg-white transition-colors duration-300 scroll-mt-24"
+>
+  {/* Local tech grid overlay */}
+  <div
+    class="absolute inset-0 z-0 pointer-events-none select-none dark:block hidden"
+    style="background-image: linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 50px 50px;"
+  >
+  </div>
+  {/* Ambient blue glow behind header */}
+  <div
+    class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-600/[0.01] rounded-full blur-[130px] pointer-events-none"
+  >
+  </div>
+
+  <div class="mx-auto max-w-[90rem] px-8 sm:px-12 lg:px-20 relative z-10">
+    {/* Editorial Header Section */}
+    <div
+      data-reveal
+      class="border-b border-[var(--section-divider)] pb-10 mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6"
+    >
+      <div class="max-w-xl">
+        <span
+          class="text-xs font-bold text-blue-500 dark:text-blue-400 uppercase tracking-[0.2em] mb-2 block"
+          >Especialidades</span
+        >
+        <h2
+          class="text-3xl md:text-4xl font-normal tracking-tight text-[hsl(var(--fg))] font-headline leading-tight"
+        >
+          En qué te puedo ayudar
+        </h2>
+      </div>
+      <p
+        class="text-sm text-[hsl(var(--fg-muted))] max-w-[40ch] leading-relaxed"
+      >
+        Mantenimiento, diagnóstico y reparación de tus equipos para que vuelvan a funcionar como el primer día.
+      </p>
+    </div>
+
+    {/* Bento Grid */}
+    <div data-stagger class="grid grid-cols-12 gap-5">
+      {
+        services.map((service, i) => {
+          const isWide = i < 2;
+          const gridSpan = isWide
+            ? "col-span-12 lg:col-span-6"
+            : "col-span-12 md:col-span-6 lg:col-span-4";
+
+          return (
+            <a
+              href="#contacto"
+              data-reveal
+              class:list={[
+                "card-hover liquid-glass rounded-2xl p-6 card-glow flex flex-col justify-between group min-h-[190px] no-underline transition-all duration-350 hover:border-blue-500/40 dark:hover:border-blue-400/40",
+                gridSpan,
+              ]}
+            >
+              {/* Header: Icon & Index */}
+              <div class="flex items-start justify-between w-full mb-6">
+                <div
+                  class="w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-200 group-hover:scale-105"
+                  style={`background: var(--card-bg); border: 1px solid var(--card-border);`}
+                >
+                  <svg
+                    class="w-4.5 h-4.5"
+                    style={`color: var(--accent);`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d={service.icon}
+                    />
+                  </svg>
+                </div>
+                <span class="font-mono text-[10px] font-bold text-[hsl(var(--fg))]/20 group-hover:text-blue-500/40 transition-colors duration-300">
+                  {service.index}
+                </span>
+              </div>
+
+              {/* Content info */}
+              <div class="space-y-2">
+                <h3 class="text-lg font-medium tracking-tight text-[hsl(var(--fg))] group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors duration-200">
+                  {service.title}
+                </h3>
+                <p class="text-xs leading-relaxed text-[hsl(var(--fg-muted))]">
+                  {service.description}
+                </p>
+              </div>
+
+              {/* Micro action prompt on hover */}
+              <div class="mt-4 pt-3 border-t border-[var(--section-divider)] flex items-center justify-between text-blue-500 dark:text-blue-400 transition-colors duration-300">
+                <span class="text-[9px] uppercase font-bold tracking-wider">
+                  Solicitar servicio
+                </span>
+                <svg
+                  class="w-3 h-3 text-blue-500 dark:text-blue-400 transform translate-x-[-3px] group-hover:translate-x-0 transition-transform duration-200"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
