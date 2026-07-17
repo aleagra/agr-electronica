@@ -156,7 +156,7 @@ const navLinks = [
       <button
         id="menu-toggle"
         type="button"
-        class="btn-press md:hidden w-7 h-7 rounded-full flex items-center justify-center"
+        class="btn-press md:hidden w-11 h-11 rounded-full flex items-center justify-center"
         style={`border: 1px solid var(--card-border); background: var(--card-bg); color: hsl(var(--fg-muted));`}
         aria-label="Menú"
         aria-expanded="false"
@@ -193,26 +193,28 @@ const navLinks = [
     {/* Mobile Dropdown Panel */}
     <div
       id="mobile-menu"
-      class="md:hidden hidden absolute top-full left-0 right-0 w-full z-[9999] pointer-events-auto"
+      class="md:hidden hidden absolute top-full left-0 right-0 w-full z-[9999] pointer-events-auto border-b border-black/10 dark:border-white/5"
     >
       <div
-        class="liquid-glass rounded-3xl p-4 shadow-xl border border-white/10 dark:border-white/5 light:border-black/5 space-y-1 mx-4 bg-white/90 dark:bg-[#020816]/95 backdrop-blur-md"
+        class="flex flex-col p-6 shadow-2xl bg-[#050B14] space-y-3"
       >
         {
           navLinks.map((link) => (
             <a
               href={link.href}
-              class="block px-4 py-3 text-xs font-bold uppercase tracking-wider text-[hsl(var(--fg-muted))] hover:text-[hsl(var(--fg))] hover:bg-white/5 rounded-xl transition-colors mobile-nav-link"
+              class="flex items-center justify-between py-3 px-2 text-xs font-bold uppercase tracking-wider text-[hsl(var(--fg))]/70 hover:text-[hsl(var(--fg))] border-b border-black/[0.04] dark:border-white/[0.04] transition-colors mobile-nav-link"
             >
-              {link.label}
+              <span>{link.label}</span>
+              <svg class="w-3.5 h-3.5 text-blue-500 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
             </a>
           ))
         }
 
         <a
           href="#contacto"
-          class="mt-2 block px-4 py-3 text-xs font-bold uppercase tracking-wider rounded-xl text-center transition-opacity hover:opacity-90 mobile-nav-link"
-          style={`background: hsl(var(--fg)); color: hsl(var(--bg));`}
+          class="mt-4 flex items-center justify-center h-12 w-full text-xs font-bold uppercase tracking-wider rounded-full bg-white text-blue-950 transition-all hover:bg-blue-50/95 active:scale-[0.98] mobile-nav-link"
         >
           Contactame
         </a>

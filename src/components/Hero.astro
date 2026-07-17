@@ -115,11 +115,11 @@ const { isOpen, badgeText } = getBusinessStatus();
           {/* Primary CTA */}
           <a
             href="#contacto"
-            class="btn-press group/btn relative w-full sm:w-auto inline-flex h-12 items-center justify-between rounded-full bg-white text-blue-950 text-xs font-bold uppercase tracking-wider pl-8 pr-2 py-2 gap-4 hover:bg-blue-50/95"
+            class="btn-press group/btn relative w-full sm:w-auto inline-flex h-12 items-center justify-center rounded-full bg-white text-blue-950 text-xs font-bold uppercase tracking-wider px-8 py-2 gap-4 hover:bg-blue-50/95"
           >
             <span>Contacto</span>
             <div
-              class="w-8 h-8 rounded-full bg-blue-950/5 flex items-center justify-center transform group-hover/btn:translate-x-0.5 transition-transform duration-200"
+              class="hidden sm:flex w-8 h-8 rounded-full bg-blue-950/5 items-center justify-center transform group-hover/btn:translate-x-0.5 transition-transform duration-200"
             >
               <svg
                 class="w-3.5 h-3.5 text-blue-950"
@@ -166,7 +166,7 @@ const { isOpen, badgeText } = getBusinessStatus();
 
       {/* Right Column (High Fidelity Glowing Logo Badge) */}
       <div
-        class="lg:col-span-5 flex justify-center items-center relative order-1 lg:order-2 py-6 lg:py-0"
+        class="hidden lg:flex lg:col-span-5 justify-center items-center relative order-1 lg:order-2 py-6 lg:py-0 hero-animate hero-animate-5"
       >
         <div
           class="relative w-full max-w-[280px] sm:max-w-[360px] aspect-square flex items-center justify-center animate-float"

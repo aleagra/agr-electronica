@@ -16,7 +16,7 @@ const {
   ogImage = '/og-image.png',
 } = Astro.props;
 
-const siteUrl = 'https://tudominio.com';
+const siteUrl = 'https://agr-electronica.vercel.app';
 ---
 
 <!doctype html>
@@ -37,6 +37,52 @@ const siteUrl = 'https://tudominio.com';
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={siteUrl + ogImage} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ElectronicsRepairShop",
+        "name": "AGR Electrónica",
+        "image": "https://agr-electronica.vercel.app/og-image.png",
+        "url": "https://agr-electronica.vercel.app",
+        "telephone": "+54 9 223 622-9328",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "12 de Octubre 6476",
+          "addressLocality": "Mar del Plata",
+          "addressRegion": "Buenos Aires",
+          "addressCountry": "AR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -38.031526,
+          "longitude": -57.587841
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:30",
+          "closes": "16:00"
+        },
+        "sameAs": [
+          "https://www.instagram.com/agr_electronica"
+        ],
+        "priceRange": "$$",
+        "description": "Servicio técnico profesional de reparación de Smart TV, computadoras, notebooks y redes en Mar del Plata.",
+        "founder": {
+          "@type": "Person",
+          "name": "Alejandro Agra"
+        }
+      }
+    </script>
   </head>
   <body>
     {/* SVG noise filter global para headlines shiny */}

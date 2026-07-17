@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agr-electronica.vercel.app/sitemap.xml
