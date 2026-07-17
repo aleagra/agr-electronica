@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <radialGradient id="bg-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#051433" />
+      <stop offset="100%" stop-color="#020816" />
+    </radialGradient>
+    <linearGradient id="silver-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="30%" stop-color="#94a3b8" />
+      <stop offset="70%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Silver/Chrome Circle -->
+  <circle cx="50" cy="50" r="45" fill="url(#bg-grad)" stroke="url(#silver-border)" stroke-width="4" />
+  
+  <!-- Inner Glow Ring -->
+  <circle cx="50" cy="50" r="41" fill="none" stroke="#00f5ff" stroke-width="1.5" stroke-opacity="0.5" />
+
+  <!-- CPU/Microchip Base (Isometric projection) -->
+  <g transform="translate(50, 64)">
+    <ellipse cx="0" cy="0" rx="22" ry="11" fill="#0052ff" filter="blur(6px)" opacity="0.4" />
+    <polygon points="-22,0 0,-11 22,0 0,11" fill="#09142b" stroke="#00a2ff" stroke-width="1.5" />
+    <polygon points="-14,-4 0,-11 14,-4 0,3" fill="#1e3a8a" stroke="#00f5ff" stroke-width="1" />
+    <polygon points="-7,-5 0,-8.5 7,-5 0,-1.5" fill="#00f5ff" stroke="#ffffff" stroke-width="0.7" />
+    
+    <!-- Pins Left -->
+    <path d="M-18,-2 L-23,-4.5" stroke="#94a3b8" stroke-width="1" />
+    <path d="M-13,0.5 L-18,-2" stroke="#94a3b8" stroke-width="1" />
+    <path d="M-8,3 L-13,0.5" stroke="#94a3b8" stroke-width="1" />
+    
+    <!-- Pins Right -->
+    <path d="M18,-2 L23,-4.5" stroke="#94a3b8" stroke-width="1" />
+    <path d="M13,0.5 L18,-2" stroke="#94a3b8" stroke-width="1" />
+    <path d="M8,3 L13,0.5" stroke="#94a3b8" stroke-width="1" />
+  </g>
+
+  <!-- Glowing Lightning / Energy traces rising up from the chip -->
+  <!-- Left Bolt -->
+  <path d="M42,60 L32,46 L35,40 L24,28 L27,18" fill="none" stroke="#00a2ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+  <path d="M42,60 L32,46 L35,40 L24,28 L27,18" fill="none" stroke="#ffffff" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Center Main Bolt -->
+  <path d="M50,56 L50,42 L46,34 L54,24 L49,16 L52,8" fill="none" stroke="#00f5ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
+  <path d="M50,56 L50,42 L46,34 L54,24 L49,16 L52,8" fill="none" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Right Bolt -->
+  <path d="M58,60 L68,46 L65,40 L76,28 L73,18" fill="none" stroke="#00a2ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+  <path d="M58,60 L68,46 L65,40 L76,28 L73,18" fill="none" stroke="#ffffff" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
