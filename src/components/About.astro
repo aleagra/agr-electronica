@@ -41,7 +41,7 @@ const features = [
   >
   </div>
 
-  <div class="mx-auto max-w-[90rem] px-8 sm:px-12 lg:px-20 relative z-10">
+  <div class="mx-auto max-w-[90rem] px-6 sm:px-8 lg:px-20 relative z-10">
     <div class="grid lg:grid-cols-12 gap-16 items-stretch">
       {/* Left Column: Title & Stats Grid (5 cols) */}
       <div data-reveal class="lg:col-span-5 flex flex-col justify-between lg:h-full space-y-8 lg:space-y-0">
@@ -64,14 +64,14 @@ const features = [
         </div>
 
         {/* Stats Grid */}
-        <div data-stagger class="grid grid-cols-2 gap-6 w-full pt-4 lg:pt-0">
+        <div data-stagger class="grid grid-cols-2 gap-4 sm:gap-6 w-full pt-4 lg:pt-0">
           {
             stats.map((stat) => (
-              <div data-reveal class="card-hover liquid-glass rounded-2xl p-6 w-full text-center sm:text-left">
-                <div class="text-3xl font-bold tracking-tight text-[hsl(var(--fg))] font-headline">
+              <div data-reveal class="card-hover liquid-glass rounded-2xl p-4 sm:p-6 w-full text-center sm:text-left">
+                <div class="text-2xl sm:text-3xl font-bold tracking-tight text-[hsl(var(--fg))] font-headline">
                   {stat.value}
                 </div>
-                <div class="mt-1 text-xs text-[hsl(var(--fg-muted))] font-medium tracking-wide">
+                <div class="mt-1 text-[10px] sm:text-xs text-[hsl(var(--fg-muted))] font-medium tracking-wide">
                   {stat.label}
                 </div>
               </div>
@@ -95,7 +95,7 @@ const features = [
             return (
               <div
                 data-reveal
-                class={`card-hover liquid-glass rounded-3xl p-8 card-glow min-h-[150px] sm:min-h-[130px] flex items-center ${hoverClass}`}
+                class={`card-hover liquid-glass rounded-3xl p-5 sm:p-8 card-glow min-h-[150px] sm:min-h-[130px] flex items-center ${hoverClass}`}
               >
                 <div class="flex items-start gap-6">
                   {/* Index Monospace Indicator */}

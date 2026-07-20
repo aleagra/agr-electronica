@@ -124,7 +124,7 @@ const Reviews = ({ limit = 4 }: Props) => {
             <div className="h-10 w-[143px] bg-white/[0.06] dark:bg-white/[0.06] light:bg-black/[0.05] rounded-xl mx-auto"></div>
           </div>
         ) : (
-          <div className={`card-hover lg:col-span-4 liquid-glass rounded-3xl p-8 text-center flex flex-col justify-center items-center space-y-6 review-reveal-item ${revealed ? 'is-visible' : ''}`}>
+          <div className={`card-hover lg:col-span-4 liquid-glass rounded-3xl p-6 sm:p-8 text-center flex flex-col justify-center items-center space-y-6 review-reveal-item ${revealed ? 'is-visible' : ''}`}>
             <span className="text-xs font-bold text-blue-500 dark:text-blue-400 uppercase tracking-widest block">Confianza</span>
             
             <div className="space-y-1">
@@ -167,7 +167,7 @@ const Reviews = ({ limit = 4 }: Props) => {
         )}
 
         {/* Right Column: Grid list of review cards (8 cols) */}
-        <div className="lg:col-span-8 grid sm:grid-cols-2 gap-4">
+        <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {loading ? (
             [1, 2, 3, 4].map((i) => (
               <div key={i} className="liquid-glass rounded-2xl p-6 animate-pulse space-y-4 flex flex-col justify-between">

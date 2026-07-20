@@ -45,7 +45,7 @@ const { isOpen, badgeText } = getBusinessStatus();
 
   {/* Hero Content Grid - Aligned to max-w-[90rem] */}
   <div
-    class="relative z-10 flex-1 flex items-center max-w-[90rem] mx-auto w-full px-8 sm:px-12 lg:px-20 pt-24 pb-12 sm:pt-32 sm:pb-16"
+    class="relative z-10 flex-1 flex items-center max-w-[90rem] mx-auto w-full px-6 sm:px-8 lg:px-20 pt-20 pb-12 md:pb-16 sm:pt-32"
   >
     <div
       class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full"
@@ -57,33 +57,40 @@ const { isOpen, badgeText } = getBusinessStatus();
         {/* Premium Hours Badge */}
         <div
           id="hero-status-badge"
-          class={`hero-animate hero-animate-1 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/20 backdrop-blur-sm mb-6 sm:mb-8 select-none transition-colors duration-300 ${
+          class={`hero-animate hero-animate-1 flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 px-4 py-2 sm:px-4 sm:py-2 rounded-[20px] sm:rounded-full border border-white/20 backdrop-blur-sm mb-6 sm:mb-8 select-none transition-colors duration-300 ${
             isOpen ? "bg-blue-500/10" : "bg-slate-500/5"
           }`}
         >
-          <span class="relative flex h-2 w-2">
-            <span
-              id="hero-status-ping"
-              class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-                isOpen ? "bg-emerald-400" : "bg-rose-400"
-              }`}></span>
-            <span
-              id="hero-status-dot"
-              class={`relative inline-flex rounded-full h-2 w-2 ${
-                isOpen ? "bg-emerald-500" : "bg-rose-500"
-              }`}></span>
-          </span>
+          {/* Group 1: Circle & Status Word (always together) */}
+          <div class="flex items-center gap-2 font-mono text-[10px] sm:text-xs font-semibold tracking-wide">
+            <span class="relative flex h-2 w-2">
+              <span
+                id="hero-status-ping"
+                class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+                  isOpen ? "bg-emerald-400" : "bg-rose-400"
+                }`}></span>
+              <span
+                id="hero-status-dot"
+                class={`relative inline-flex rounded-full h-2 w-2 ${
+                  isOpen ? "bg-emerald-500" : "bg-rose-500"
+                }`}></span>
+            </span>
+            <span id="hero-status-label" class={isOpen ? "text-emerald-400" : "text-rose-400"}>
+              {badgeText.split(" — ")[0]}
+            </span>
+          </div>
+
+          {/* Separator Dash (only desktop) */}
+          <span class="hidden sm:inline text-white/20 select-none">—</span>
+
+          {/* Group 2: Hours Info */}
           <span
-            id="hero-status-text"
-            class={`text-xs font-mono font-semibold tracking-wide ${
+            id="hero-status-time"
+            class={`text-[10px] sm:text-xs font-mono font-semibold tracking-wide ${
               isOpen ? "text-blue-200" : "text-slate-400"
             }`}
           >
-            <span class={isOpen ? "text-emerald-400" : "text-rose-400"}
-              >{badgeText.split(" — ")[0]}</span
-            > — <span class={isOpen ? "text-white" : "text-slate-300"}
-              >{badgeText.split(" — ")[1]}</span
-            >
+            {badgeText.split(" — ")[1]}
           </span>
         </div>
 
@@ -91,9 +98,9 @@ const { isOpen, badgeText } = getBusinessStatus();
           /* Main Display Typography Headline - Stencil/Bold typography styled */
         }
         <h1
-          class="hero-animate hero-animate-2 font-headline text-[clamp(2.2rem,6vw,4.2rem)] font-bold leading-[1.1] tracking-tight text-white"
+          class="hero-animate hero-animate-2 font-headline text-[clamp(1.9rem,6vw,4.2rem)] font-bold leading-[1.1] tracking-tight text-white"
         >
-          AGR ELECTRONICA <br />
+          AGR ELECTRÓNICA <br />
           <span
             class="gradient-shiny animate-shiny text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-extrabold"
             >SERVICIO TÉCNICO</span
@@ -147,16 +154,19 @@ const { isOpen, badgeText } = getBusinessStatus();
 
         {/* Trajectory */}
         <div
-          class="hero-animate hero-animate-5 mt-10 sm:mt-12 select-none w-full flex flex-col items-center lg:items-start"
+          class="hero-animate hero-animate-5 mt-6 sm:mt-12 select-none w-full hidden md:flex flex-col items-center lg:items-start"
         >
           <p
-            class="text-sm font-semibold text-blue-100 font-headline tracking-wide animate-pulse"
+            class="text-xs sm:text-sm font-semibold text-blue-100 font-headline tracking-wide animate-pulse text-center lg:text-left"
           >
-            10+ años de trayectoria <span class="mx-3 text-blue-500/40">•</span> +5000
-            equipos reparados en Mar del Plata
+            <span class="inline-block">10+ años de trayectoria</span>
+            <span class="mx-2.5 text-blue-500/40 sm:inline hidden">•</span>
+            <span class="sm:hidden block my-0.5"></span>
+            <span class="inline-block">+5000 equipos reparados</span>
+            <span class="inline-block">en Mar del Plata</span>
           </p>
           <p
-            class="mt-2.5 text-[11px] text-blue-200/30 font-sans leading-relaxed max-w-[50ch]"
+            class="mt-4 text-xs text-blue-200/65 font-sans leading-relaxed max-w-[50ch] text-center lg:text-left"
           >
             También gestiono siniestros con Allianz, Sancor, La Segunda, San
             Cristóbal, Rivadavia y Federación Patronal.
@@ -464,15 +474,16 @@ const { isOpen, badgeText } = getBusinessStatus();
     const badge = document.getElementById("hero-status-badge");
     const ping = document.getElementById("hero-status-ping");
     const dot = document.getElementById("hero-status-dot");
-    const textEl = document.getElementById("hero-status-text");
+    const labelEl = document.getElementById("hero-status-label");
+    const timeEl = document.getElementById("hero-status-time");
 
     if (badge) {
       if (isOpen) {
         badge.className =
-          "hero-animate hero-animate-1 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/20 bg-blue-500/10 backdrop-blur-sm mb-6 sm:mb-8 select-none transition-colors duration-300";
+          "hero-animate hero-animate-1 flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 px-4 py-2 sm:px-4 sm:py-2 rounded-[20px] sm:rounded-full border border-white/20 bg-blue-500/10 backdrop-blur-sm mb-6 sm:mb-8 select-none transition-colors duration-300";
       } else {
         badge.className =
-          "hero-animate hero-animate-1 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/20 bg-slate-500/5 backdrop-blur-sm mb-6 sm:mb-8 select-none transition-colors duration-300";
+          "hero-animate hero-animate-1 flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 px-4 py-2 sm:px-4 sm:py-2 rounded-[20px] sm:rounded-full border border-white/20 bg-slate-500/5 backdrop-blur-sm mb-6 sm:mb-8 select-none transition-colors duration-300";
       }
     }
 
@@ -484,15 +495,19 @@ const { isOpen, badgeText } = getBusinessStatus();
       dot.className = `relative inline-flex rounded-full h-2 w-2 ${isOpen ? "bg-emerald-500" : "bg-rose-500"}`;
     }
 
-    if (textEl) {
-      const parts = badgeText.split(" — ");
-      textEl.innerHTML = `<span class="${isOpen ? "text-emerald-400" : "text-rose-400"}">${parts[0]}</span> — <span class="${isOpen ? "text-white" : "text-slate-300"}">${parts[1]}</span>`;
+    if (labelEl) {
+      labelEl.textContent = badgeText.split(" — ")[0];
+      labelEl.className = isOpen ? "text-emerald-400" : "text-rose-400";
+    }
+
+    if (timeEl) {
+      timeEl.textContent = badgeText.split(" — ")[1];
       if (isOpen) {
-        textEl.className =
-          "text-xs font-mono font-semibold tracking-wide text-blue-200";
+        timeEl.className =
+          "text-[10px] sm:text-xs font-mono font-semibold tracking-wide text-blue-200";
       } else {
-        textEl.className =
-          "text-xs font-mono font-semibold tracking-wide text-slate-400";
+        timeEl.className =
+          "text-[10px] sm:text-xs font-mono font-semibold tracking-wide text-slate-400";
       }
     }
   }
