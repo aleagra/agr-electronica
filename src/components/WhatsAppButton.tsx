@@ -1,36 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
-// WhatsApp - Theme-aware floating button with tooltip
+// WhatsApp - Theme-aware floating button
 const WhatsAppButton = () => {
-  const [showTooltip, setShowTooltip] = useState(false);
-  const interacted = useRef(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!interacted.current) {
-        setShowTooltip(true);
-        setTimeout(() => setShowTooltip(false), 3000);
-      }
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <div
-      className="fixed bottom-6 right-6 z-50"
-      onMouseEnter={() => { interacted.current = true; setShowTooltip(true); }}
-      onMouseLeave={() => setShowTooltip(false)}
-    >
-      <div
-        className={`absolute bottom-full right-0 mb-3 px-4 py-2.5 backdrop-blur-xl rounded-xl text-sm whitespace-nowrap transition-all duration-200 ${
-          showTooltip ? 'opacity-100 translate-y-0' : 'opacity-0 pointer-events-none translate-y-2'
-        }`}
-        style={{ background: 'var(--liquid-bg)', border: '1px solid var(--liquid-border)', color: 'hsl(var(--fg))' }}
-      >
-        Escribinos, te ayudamos!
-        <div className="absolute top-full right-6 w-2 h-2 rotate-45 -translate-y-1" style={{ background: 'var(--liquid-bg)', borderRight: '1px solid var(--liquid-border)', borderBottom: '1px solid var(--liquid-border)' }}></div>
-      </div>
-
+    <div className="fixed bottom-6 right-6 z-50">
       <a
         href="https://wa.me/5492236229328"
         target="_blank"

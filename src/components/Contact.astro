@@ -20,7 +20,7 @@ const contactCards = [
 
 <section
   id="contacto"
-  class="relative py-24 overflow-hidden dark:bg-[#0A1122] bg-[#f4f6f9]/50 transition-colors duration-300"
+  class="relative py-24 overflow-hidden dark:bg-[#0A1122] bg-[#f4f6f9]/50 transition-colors duration-300 scroll-mt-28"
 >
   {/* Ambient background glow */}
   <div
@@ -106,11 +106,13 @@ const contactCards = [
                 <div>
                   <div class="flex items-center gap-3.5 mb-2.5">
                     <div
-                      class="w-8 h-8 rounded-xl flex items-center justify-center"
+                      class="w-8 h-8 rounded-xl flex items-center justify-center shrink-0"
                       style={`background: var(--card-bg); border: 1px solid var(--card-border);`}
                     >
                       <svg
-                        class="w-4.5 h-4.5"
+                        class="w-5 h-5 shrink-0"
+                        width="20"
+                        height="20"
                         style={`color: var(--accent);`}
                         fill="none"
                         viewBox="0 0 24 24"
