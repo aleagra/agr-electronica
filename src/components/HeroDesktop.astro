@@ -68,10 +68,9 @@ const { isOpen, badgeText } = getBusinessStatus();
 
       {/* Description */}
       <p
-        class="hero-animate hero-animate-3 mt-6 text-lg leading-relaxed text-blue-200/70 max-w-[50ch]"
+        class="hero-animate hero-animate-3 mt-6 text-lg leading-relaxed text-blue-100/90 max-w-[50ch]"
       >
-        ¿Tu equipo no prende o anda lento? Dejá tu televisor o computadora en
-        manos capacitadas.
+        ¿Tu PC o TV no funciona? Lo reparamos rápido.
       </p>
 
       {/* Action Buttons */}
@@ -136,13 +135,11 @@ const { isOpen, badgeText } = getBusinessStatus();
       <div
         class="relative w-full max-w-[360px] aspect-square flex items-center justify-center animate-float power-surge-hover cursor-pointer"
       >
-        <div
-          class="absolute inset-0 bg-blue-500/10 rounded-full blur-[60px] animate-pulse"
-        >
+        <div class="absolute inset-0 rounded-full" style="transform: translateZ(0);">
+          <div class="absolute inset-0 bg-blue-500/10 rounded-full blur-[60px]"></div>
         </div>
-        <div
-          class="absolute w-[80%] h-[80%] bg-cyan-400/5 rounded-full blur-[40px] animate-pulse [animation-delay:1s]"
-        >
+        <div class="absolute inset-0 rounded-full animate-pulse [will-change:opacity]" style="transform: translateZ(0);">
+          <div class="absolute w-[80%] h-[80%] top-[10%] left-[10%] bg-cyan-400/5 rounded-full blur-[40px]"></div>
         </div>
 
         <svg
@@ -382,6 +379,8 @@ const { isOpen, badgeText } = getBusinessStatus();
   }
   .animate-float {
     animation: float 6s ease-in-out infinite;
+    will-change: transform;
+    contain: layout;
   }
 </style>
 

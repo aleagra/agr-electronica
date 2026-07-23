@@ -60,7 +60,7 @@ export const GET: APIRoute = async ({ request }) => {
       },
     });
   } catch (error) {
-    console.error('Error fetching Google reviews:', error);
+    // Silenced: fallback to mock reviews on client side
 
     return new Response(
       JSON.stringify({

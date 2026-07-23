@@ -1,4 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap');
+/* ── Self-hosted fonts (no third-party cookies, no render-blocking) ── */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-500.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-600.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 500;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-300-500.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-600-700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/instrument-serif-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 @tailwind base;
 @tailwind components;
@@ -34,6 +90,11 @@ html {
 
 [data-reveal].hero-stagger-item.is-visible {
   animation: hero-reveal-up 200ms ease-out forwards;
+}
+
+/* ── Override Tailwind animate-ping to make it GPU-composited ── */
+.animate-ping {
+  will-change: transform, opacity;
 }
 
 /* ========== CSS VARIABLES - LIGHT THEME (default) ========== */
@@ -211,6 +272,7 @@ html.dark .gradient-shiny {
 
 .animate-shiny {
   animation: shiny 6s linear infinite;
+  will-change: background-position;
 }
 
 @keyframes shiny {
@@ -226,6 +288,7 @@ html.dark .gradient-shiny {
 .animate-skeleton {
   background: var(--skeleton-bg);
   animation: skeleton-pulse 1.5s ease-in-out infinite;
+  will-change: opacity;
 }
 
 /* ========== CARD HOVER ========== */
@@ -614,11 +677,13 @@ html.dark .header-scrolled#main-header {
 
 /* ── Grid Breathing & Data Stream Animations ── */
 @keyframes grid-breathe {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.7; }
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.55; }
 }
 .animate-grid-breathe {
   animation: grid-breathe 6s ease-in-out infinite;
+  will-change: opacity;
+  contain: paint;
 }
 
 @keyframes data-flow {
@@ -630,7 +695,8 @@ html.dark .header-scrolled#main-header {
   fill: none;
   stroke-linecap: square;
   stroke-linejoin: miter;
-  opacity: 0.7;
+  opacity: 0.6;
+  will-change: stroke-dashoffset;
 }
 
 .stream-cyan {
@@ -638,7 +704,7 @@ html.dark .header-scrolled#main-header {
   stroke-width: 1.5px;
   stroke-dasharray: 100 50 50 100 200 100 100 300;
   animation: data-flow 50s linear infinite;
-  filter: drop-shadow(0 0 3px rgba(0, 245, 255, 0.4));
+  filter: drop-shadow(0 0 2.5px rgba(0, 245, 255, 0.35));
 }
 
 .stream-blue {
@@ -646,7 +712,7 @@ html.dark .header-scrolled#main-header {
   stroke-width: 1px;
   stroke-dasharray: 50 100 150 50 50 100 300 200;
   animation: data-flow 65s linear infinite reverse;
-  filter: drop-shadow(0 0 3px rgba(0, 136, 255, 0.4));
+  filter: drop-shadow(0 0 2.5px rgba(0, 136, 255, 0.35));
 }
 
 .stream-light {
@@ -654,7 +720,7 @@ html.dark .header-scrolled#main-header {
   stroke-width: 1px;
   stroke-dasharray: 50 50 150 100 50 100 300 200;
   animation: data-flow 40s linear infinite;
-  filter: drop-shadow(0 0 2px rgba(128, 212, 255, 0.4));
+  filter: drop-shadow(0 0 2px rgba(128, 212, 255, 0.35));
 }
 
 /* ── Magnetic Badge Levitating & Power Surge ── */
