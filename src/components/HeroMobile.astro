@@ -10,7 +10,7 @@ const { isOpen, badgeText } = getBusinessStatus();
   =========================================
 -->
 <section
-  class="lg:hidden relative h-[100svh] w-full flex flex-col justify-between bg-transparent pt-14"
+  class="lg:hidden relative h-[calc(100svh-3.5rem)] w-full flex flex-col justify-between bg-transparent"
 >
   {/* MOBILE HERO CONTAINER CONTENT */}
   <div
@@ -20,15 +20,13 @@ const { isOpen, badgeText } = getBusinessStatus();
       /* CONTENIDO PRINCIPAL (Centrado verticalmente entre navbar y barra intermedia) */
     }
     <div
-      data-stagger
       class="flex-1 flex flex-col items-center justify-center text-center space-y-6 px-6 py-6 w-full max-w-md sm:max-w-lg mx-auto"
     >
       {
         /* 1. Overline con Horario únicamente y líneas decorativas */
       }
       <div
-        data-reveal
-        class="hero-stagger-item flex flex-col items-center gap-4 w-full"
+        class="hero-animate hero-animate-1 flex flex-col items-center gap-4 w-full"
       >
         {/* Overline de horario enmarcado con líneas decorativas adaptativas */}
         <div
@@ -65,8 +63,7 @@ const { isOpen, badgeText } = getBusinessStatus();
 
       {/* 3. ÚNICO BOTÓN PRINCIPAL CENTRADO (Pedir diagnóstico) */}
       <div
-        data-reveal
-        class="hero-stagger-item flex items-center justify-center w-full pt-2"
+        class="hero-animate hero-animate-2 flex items-center justify-center w-full pt-2"
       >
         <a
           href="#contacto"

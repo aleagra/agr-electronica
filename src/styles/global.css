@@ -67,19 +67,21 @@ html {
   color-scheme: dark;
 }
 
-/* Custom Scrollbar for Windows/Linux */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #020512;
-}
-::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+/* Custom Scrollbar for Windows/Linux (Only on Desktop) */
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #020512;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
 }
 
 .accent-word {
