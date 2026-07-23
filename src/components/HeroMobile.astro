@@ -10,7 +10,7 @@ const { isOpen, badgeText } = getBusinessStatus();
   =========================================
 -->
 <section
-  class="lg:hidden relative h-dvh w-full flex flex-col justify-between overflow-hidden bg-transparent pt-14"
+  class="lg:hidden relative h-[100svh] w-full flex flex-col justify-between bg-transparent pt-14"
 >
   {/* MOBILE HERO CONTAINER CONTENT */}
   <div
@@ -94,14 +94,14 @@ const { isOpen, badgeText } = getBusinessStatus();
       /* BARRA INTERMEDIA TRANSLÚCIDA SIN BORDES VERTICALES RÍGIDOS */
     }
     <div
-      class="shrink-0 w-full h-14 border-y border-white/5 bg-slate-900/30 backdrop-blur-md grid grid-cols-[56px_1fr_56px] items-center select-none"
+      class="shrink-0 w-full h-14 border-y border-black/5 dark:border-white/10 bg-white/80 dark:bg-[#020816]/80 backdrop-blur-md grid grid-cols-[56px_1fr_56px] items-center select-none"
     >
       {
         /* Columna 1 (Izq, 56px): Punto de estado + texto ABIERTO */
       }
       <div
         id="hero-status-badge-mobile"
-        class="flex flex-col items-center justify-center gap-1 w-14 h-14 shrink-0"
+        class="flex flex-col items-center justify-center gap-1 w-14 h-14 shrink-0 border-r border-black/5 dark:border-white/10"
       >
         <span class="relative flex h-2 w-2 shrink-0">
           <span
@@ -123,20 +123,20 @@ const { isOpen, badgeText } = getBusinessStatus();
 
       {/* Columna 2 (Centro, 1fr): MAR DEL PLATA centrado */}
       <div class="flex items-center justify-center gap-1.5 sm:gap-2 px-1 sm:px-2 h-full min-w-0">
-        <span class="w-2 sm:w-4 h-[1px] bg-blue-400/40 shrink min-w-0 max-[340px]:hidden"></span>
+        <span class="w-2 sm:w-4 h-[1px] bg-white/30 shrink min-w-0 max-[340px]:hidden"></span>
         <span
-          class="text-[10.5px] min-[360px]:text-xs font-mono font-bold tracking-[0.15em] min-[360px]:tracking-[0.25em] text-blue-300/70 uppercase truncate text-center"
+          class="text-[10.5px] min-[360px]:text-xs font-mono font-bold tracking-[0.15em] min-[360px]:tracking-[0.25em] text-white uppercase truncate text-center"
         >
           MAR DEL PLATA
         </span>
-        <span class="w-2 sm:w-4 h-[1px] bg-blue-400/40 shrink min-w-0 max-[340px]:hidden"></span>
+        <span class="w-2 sm:w-4 h-[1px] bg-white/30 shrink min-w-0 max-[340px]:hidden"></span>
       </div>
 
       {
         /* Columna 3 (Der, 56px): Botón de WhatsApp centrado */
       }
       <div
-        class="flex items-center justify-center w-14 h-14 shrink-0"
+        class="flex items-center justify-center w-14 h-14 shrink-0 border-l border-black/5 dark:border-white/10"
       >
         <a
           href="https://wa.me/5492236229328"

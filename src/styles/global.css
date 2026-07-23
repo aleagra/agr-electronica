@@ -612,3 +612,67 @@ html.dark .header-scrolled#main-header {
   }
 }
 
+/* ── Grid Breathing & Data Stream Animations ── */
+@keyframes grid-breathe {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+.animate-grid-breathe {
+  animation: grid-breathe 6s ease-in-out infinite;
+}
+
+@keyframes data-flow {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.data-stream {
+  fill: none;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  opacity: 0.7;
+}
+
+.stream-cyan {
+  stroke: #00f5ff;
+  stroke-width: 1.5px;
+  stroke-dasharray: 100 50 50 100 200 100 100 300;
+  animation: data-flow 50s linear infinite;
+  filter: drop-shadow(0 0 3px rgba(0, 245, 255, 0.4));
+}
+
+.stream-blue {
+  stroke: #0088ff;
+  stroke-width: 1px;
+  stroke-dasharray: 50 100 150 50 50 100 300 200;
+  animation: data-flow 65s linear infinite reverse;
+  filter: drop-shadow(0 0 3px rgba(0, 136, 255, 0.4));
+}
+
+.stream-light {
+  stroke: #80d4ff;
+  stroke-width: 1px;
+  stroke-dasharray: 50 50 150 100 50 100 300 200;
+  animation: data-flow 40s linear infinite;
+  filter: drop-shadow(0 0 2px rgba(128, 212, 255, 0.4));
+}
+
+/* ── Magnetic Badge Levitating & Power Surge ── */
+@keyframes levitate-magnetic {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-magnetic {
+  animation: levitate-magnetic 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.power-surge-hover {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.power-surge-hover:hover {
+  filter: drop-shadow(0 0 35px rgba(0, 245, 255, 0.5)) drop-shadow(0 0 15px rgba(0, 162, 255, 0.3));
+  transform: scale(1.03);
+}

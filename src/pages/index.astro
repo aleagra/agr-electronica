@@ -2,12 +2,10 @@
 // index.astro - Main page assembling all sections
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import Specs from "../components/Specs.astro";
 import Services from "../components/Services.astro";
 import About from "../components/About.astro";
 import Reviews from "../components/Reviews.tsx";
 import Contact from "../components/Contact.astro";
-import FinalCTA from "../components/FinalCTA.astro";
 import WhatsAppButton from "../components/WhatsAppButton.tsx";
 ---
 
@@ -19,13 +17,9 @@ import WhatsAppButton from "../components/WhatsAppButton.tsx";
   <About />
 
   <section
-    class="relative pt-12 pb-24 sm:pt-16 sm:pb-24 bg-transparent transition-colors duration-300 overflow-hidden"
+    class="relative pt-12 pb-24 sm:pt-16 sm:pb-24 bg-transparent border-t border-white/10 transition-colors duration-300 overflow-hidden"
   >
-    {/* Subtle technical glow orb behind scorecard */}
-    <div
-      class="absolute top-1/2 left-10 -translate-y-1/2 w-[450px] h-[450px] bg-blue-600/[0.02] rounded-full blur-[130px] pointer-events-none z-0"
-    >
-    </div>
+
     <div class="mx-auto max-w-[90rem] px-6 sm:px-8 lg:px-20 relative z-10">
       <div id="resenas" class="scroll-mt-20 sm:scroll-mt-24"></div>
       {/* Editorial Header Section */}
