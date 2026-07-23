@@ -3,7 +3,7 @@ import React from 'react';
 // WhatsApp - Theme-aware floating button
 const WhatsAppButton = () => {
   return (
-    <div className="hidden sm:block fixed bottom-6 right-6 z-40">
+    <div className="hidden sm:block fixed bottom-8 right-8 z-40">
       <a
         href="https://wa.me/5492236229328"
         target="_blank"
