@@ -1,6 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.accent-word {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Reveal rápido escalonado para hero mobile */
+@keyframes hero-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-reveal].hero-stagger-item {
+  opacity: 0;
+  transform: translateY(8px);
+  will-change: transform, opacity;
+}
+
+[data-reveal].hero-stagger-item.is-visible {
+  animation: hero-reveal-up 200ms ease-out forwards;
+}
 
 /* ========== CSS VARIABLES - LIGHT THEME (default) ========== */
 :root {
@@ -538,11 +572,10 @@ textarea:-webkit-autofill:focus {
 
 /* ── Navbar scroll transition ── */
 #main-header {
-  transition: height 250ms var(--ease-out), background-color 250ms var(--ease-out), border-color 250ms var(--ease-out), backdrop-filter 250ms var(--ease-out);
-  will-change: height, background-color;
+  transition: background-color 250ms var(--ease-out), border-color 250ms var(--ease-out), backdrop-filter 250ms var(--ease-out);
+  will-change: background-color;
 }
 .header-scrolled#main-header {
-  height: 3.5rem !important; /* 56px instead of 64px */
   background-color: rgba(255, 255, 255, 0.9) !important;
   border-color: rgba(0, 0, 0, 0.08) !important;
   backdrop-filter: blur(16px) !important;

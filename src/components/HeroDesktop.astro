@@ -1,0 +1,455 @@
+---
+// HeroDesktop - Exclusivo para pantallas grandes y computadoras (>= lg)
+import { getBusinessStatus } from "../lib/businessHours";
+const { isOpen, badgeText } = getBusinessStatus();
+---
+
+<!-- 
+  =========================================
+  HERO DESKTOP CONTAINER (>= lg)
+  =========================================
+-->
+<section
+  class="hidden lg:flex relative min-h-[95dvh] w-full flex-col justify-center items-center overflow-hidden bg-gradient-to-b from-[#020816] via-[#071638] to-[#050b14] pt-16 pb-8"
+>
+  {/* Local tech grid overlay */}
+  <div
+    class="absolute inset-0 z-0 pointer-events-none select-none"
+    style="background-image: linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 50px 50px;"
+  >
+  </div>
+
+
+
+  {
+    /* Ambient tech-glow orbs (radial glow matching the AGR Electrónica colors) */
+  }
+  <div
+    class="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#00a2ff]/15 rounded-full blur-[140px] pointer-events-none z-0"
+  >
+  </div>
+  <div
+    class="absolute top-[20%] left-[10%] w-[350px] h-[350px] bg-[#00f5ff]/8 rounded-full blur-[100px] pointer-events-none z-0"
+  >
+  </div>
+  <div
+    class="absolute bottom-[10%] right-[5%] w-[400px] h-[400px] bg-[#0055ff]/8 rounded-full blur-[120px] pointer-events-none z-0"
+  >
+  </div>
+
+  {/* DESKTOP HERO CONTENT */}
+  <div
+    class="relative z-10 grid grid-cols-12 gap-8 items-center w-full max-w-[90rem] mx-auto px-20"
+  >
+    {/* Left Column (Content) */}
+    <div class="col-span-7 flex flex-col items-start text-left order-1">
+      {/* Premium Hours Badge */}
+      <div
+        id="hero-status-badge-desktop"
+        class={`hero-animate hero-animate-1 flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/20 backdrop-blur-sm mb-8 select-none transition-colors duration-300 ${
+          isOpen ? "bg-blue-500/10" : "bg-slate-500/5"
+        }`}
+      >
+        <div
+          class="flex items-center gap-2 font-mono text-xs font-semibold tracking-wide"
+        >
+          <span class="relative flex h-2 w-2">
+            <span
+              id="hero-status-ping-desktop"
+              class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isOpen ? "bg-emerald-400" : "bg-rose-400"}`}
+            ></span>
+            <span
+              id="hero-status-dot-desktop"
+              class={`relative inline-flex rounded-full h-2 w-2 ${isOpen ? "bg-emerald-500" : "bg-rose-500"}`}
+            ></span>
+          </span>
+          <span
+            id="hero-status-label-desktop"
+            class={isOpen ? "text-emerald-400" : "text-rose-400"}
+          >
+            {badgeText.split(" — ")[0]}
+          </span>
+        </div>
+        <span class="text-white/20 select-none">—</span>
+        <span
+          id="hero-status-time-desktop"
+          class={`text-xs font-mono font-semibold tracking-wide ${isOpen ? "text-blue-200" : "text-slate-400"}`}
+        >
+          {badgeText.split(" — ")[1]}
+        </span>
+      </div>
+
+      {/* Main Display Typography Headline */}
+      <h1
+        class="hero-animate hero-animate-2 font-headline text-[clamp(1.9rem,6vw,4.2rem)] font-bold leading-[1.1] tracking-tight text-white"
+      >
+        AGR ELECTRÓNICA <br />
+        <span
+          class="gradient-shiny animate-shiny text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-extrabold"
+        >
+          SERVICIO TÉCNICO
+        </span>
+      </h1>
+
+      {/* Description */}
+      <p
+        class="hero-animate hero-animate-3 mt-6 text-lg leading-relaxed text-blue-200/70 max-w-[50ch]"
+      >
+        ¿Tu equipo no prende o anda lento? Dejá tu televisor o computadora en
+        manos capacitadas.
+      </p>
+
+      {/* Action Buttons */}
+      <div
+        class="hero-animate hero-animate-4 mt-10 flex flex-row items-center justify-start gap-4"
+      >
+        <a
+          href="#contacto"
+          class="btn-press group/btn relative inline-flex h-12 items-center justify-center rounded-full bg-white text-blue-950 text-xs font-bold uppercase tracking-wider px-8 py-2 gap-4 hover:bg-blue-50/95"
+        >
+          <span>Contacto</span>
+          <div
+            class="flex w-8 h-8 rounded-full bg-blue-950/5 items-center justify-center transform group-hover/btn:translate-x-0.5 transition-transform duration-200"
+          >
+            <svg
+              class="w-3.5 h-3.5 text-blue-950"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+            </svg>
+          </div>
+        </a>
+
+        <a
+          href="#servicios"
+          class="btn-press inline-flex h-12 items-center justify-center rounded-full border border-white/20 bg-white/[0.02] text-white text-xs font-bold uppercase tracking-wider px-8 py-3.5"
+        >
+          Ver servicios
+        </a>
+      </div>
+
+      {/* Trajectory */}
+      <div
+        class="hero-animate hero-animate-5 mt-12 select-none flex flex-col items-start"
+      >
+        <p
+          class="text-sm font-semibold text-blue-100 font-headline tracking-wide animate-pulse text-left"
+        >
+          <span>10+ años de trayectoria</span>
+          <span class="mx-2.5 text-blue-500/40">•</span>
+          <span>+5000 equipos reparados en Mar del Plata</span>
+        </p>
+        <p
+          class="mt-4 text-xs text-blue-200/65 font-sans leading-relaxed max-w-[50ch] text-left"
+        >
+          También gestiono siniestros con Allianz, Sancor, La Segunda, San
+          Cristóbal, Rivadavia y Federación Patronal.
+        </p>
+      </div>
+    </div>
+
+    {/* Right Column (High Fidelity Glowing Logo Badge) */}
+    <div
+      class="col-span-5 flex justify-center items-center relative order-2 py-0 hero-animate hero-animate-5"
+    >
+      <div
+        class="relative w-full max-w-[360px] aspect-square flex items-center justify-center animate-float"
+      >
+        <div
+          class="absolute inset-0 bg-blue-500/10 rounded-full blur-[60px] animate-pulse"
+        >
+        </div>
+        <div
+          class="absolute w-[80%] h-[80%] bg-cyan-400/5 rounded-full blur-[40px] animate-pulse [animation-delay:1s]"
+        >
+        </div>
+
+        <svg
+          class="absolute w-[130%] h-[130%] pointer-events-none opacity-45"
+          viewBox="0 0 200 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20,100 L60,100 L80,120 L120,120 L140,100 L180,100"
+            stroke="#00f5ff"
+            stroke-width="1.2"
+            stroke-dasharray="4 4"
+            opacity="0.3"></path>
+          <path
+            d="M50,40 L80,70 L120,70 L140,50"
+            stroke="#0052ff"
+            stroke-width="1.5"
+            opacity="0.4"></path>
+          <circle cx="80" cy="70" r="3" fill="#00f5ff"></circle>
+          <circle cx="120" cy="70" r="3" fill="#0052ff"></circle>
+          <path
+            d="M40,160 L70,130 L130,130 L160,160"
+            stroke="#00a2ff"
+            stroke-width="1.2"
+            opacity="0.3"></path>
+        </svg>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 200 200"
+          class="w-full h-full select-none drop-shadow-[0_0_30px_rgba(0,162,255,0.25)]"
+        >
+          <defs>
+            <radialGradient id="hero-badge-bg-d" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#091c42"></stop>
+              <stop offset="60%" stop-color="#030c24"></stop>
+              <stop offset="100%" stop-color="#010512"></stop>
+            </radialGradient>
+            <linearGradient
+              id="hero-badge-border-d"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" stop-color="#ffffff"></stop>
+              <stop offset="25%" stop-color="#cbd5e1"></stop>
+              <stop offset="50%" stop-color="#64748b"></stop>
+              <stop offset="75%" stop-color="#334155"></stop>
+              <stop offset="100%" stop-color="#0f172a"></stop>
+            </linearGradient>
+            <linearGradient
+              id="hero-chrome-text-d"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
+              <stop offset="0%" stop-color="#ffffff"></stop>
+              <stop offset="40%" stop-color="#e0f2fe"></stop>
+              <stop offset="50%" stop-color="#38bdf8"></stop>
+              <stop offset="75%" stop-color="#0284c7"></stop>
+              <stop offset="100%" stop-color="#0369a1"></stop>
+            </linearGradient>
+            <radialGradient id="core-glow-d" cx="50%" cy="50%" r="40%">
+              <stop offset="0%" stop-color="#00f5ff" stop-opacity="0.8"></stop>
+              <stop offset="50%" stop-color="#0052ff" stop-opacity="0.4"></stop>
+              <stop offset="100%" stop-color="#000000" stop-opacity="0"></stop>
+            </radialGradient>
+          </defs>
+
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            fill="url(#hero-badge-bg-d)"
+            stroke="url(#hero-badge-border-d)"
+            stroke-width="6.5"></circle>
+          <circle
+            cx="100"
+            cy="100"
+            r="84"
+            fill="none"
+            stroke="#00f5ff"
+            stroke-width="1.8"
+            stroke-opacity="0.4"></circle>
+          <circle cx="100" cy="128" r="42" fill="url(#core-glow-d)"></circle>
+          <g transform="translate(100, 136)">
+            <polygon
+              points="-42,0 0,-20 42,0 0,20"
+              fill="#040e24"
+              stroke="#00a2ff"
+              stroke-width="2.2"></polygon>
+            <polygon
+              points="-35,0 0,-17 35,0 0,17"
+              fill="none"
+              stroke="#0052ff"
+              stroke-width="1"
+              opacity="0.6"></polygon>
+            <polygon
+              points="-28,-7 0,-20 28,-7 0,5"
+              fill="#1e3a8a"
+              stroke="#00f5ff"
+              stroke-width="1.2"></polygon>
+            <polygon
+              points="-15,-9 0,-17 15,-9 0,-1.5"
+              fill="#e0f2fe"
+              stroke="#00f5ff"
+              stroke-width="0.8"></polygon>
+            <polygon points="-9,-8 0,-13 9,-8 0,-3" fill="#ffffff"></polygon>
+            <path d="M-35,-3.5 L-44,-8" stroke="#94a3b8" stroke-width="1.2"
+            ></path>
+            <path d="M-28,0 L-37,-4.5" stroke="#94a3b8" stroke-width="1.2"
+            ></path>
+            <path d="M-21,3.5 L-30,-1" stroke="#94a3b8" stroke-width="1.2"
+            ></path>
+            <path d="M-14,7 L-23,2.5" stroke="#94a3b8" stroke-width="1.2"
+            ></path>
+            <path d="M35,-3.5 L44,-8" stroke="#94a3b8" stroke-width="1.2"
+            ></path>
+            <path d="M28,0 L37,-4.5" stroke="#94a3b8" stroke-width="1.2"></path>
+            <path d="M21,3.5 L30,-1" stroke="#94a3b8" stroke-width="1.2"></path>
+            <path d="M14,7 L23,2.5" stroke="#94a3b8" stroke-width="1.2"></path>
+          </g>
+          <path
+            d="M85,125 L65,95 L72,85 L50,60 L58,40"
+            fill="none"
+            stroke="#00a2ff"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            opacity="0.8"
+          >
+            <animate
+              attributeName="opacity"
+              values="0.5;1;0.5"
+              dur="2s"
+              repeatCount="indefinite"></animate>
+          </path>
+          <path
+            d="M85,125 L65,95 L72,85 L50,60 L58,40"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="0.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M100,120 L100,90 L92,75 L108,55 L98,35 L104,18"
+            fill="none"
+            stroke="#00f5ff"
+            stroke-width="3.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <animate
+              attributeName="opacity"
+              values="0.7;1;0.7"
+              dur="1.4s"
+              repeatCount="indefinite"></animate>
+          </path>
+          <path
+            d="M100,120 L100,90 L92,75 L108,55 L98,35 L104,18"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="1.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M115,125 L135,95 L128,85 L150,60 L142,40"
+            fill="none"
+            stroke="#00a2ff"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            opacity="0.8"
+          >
+            <animate
+              attributeName="opacity"
+              values="0.5;1;0.5"
+              dur="2.4s"
+              repeatCount="indefinite"></animate>
+          </path>
+          <path
+            d="M115,125 L135,95 L128,85 L150,60 L142,40"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="0.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <text
+            x="100"
+            y="80"
+            font-family="'Space Grotesk', system-ui, sans-serif"
+            font-weight="900"
+            font-size="32"
+            fill="url(#hero-chrome-text-d)"
+            text-anchor="middle"
+            letter-spacing="1.5"
+            filter="drop-shadow(0 2px 4px rgba(0,0,0,0.5))">AGR</text
+          >
+          <rect
+            x="38"
+            y="89"
+            width="124"
+            height="14"
+            fill="#000000"
+            rx="2.5"
+            opacity="0.8"
+            stroke="#00f5ff"
+            stroke-width="0.8"></rect>
+          <text
+            x="100"
+            y="99"
+            font-family="'Space Grotesk', system-ui, sans-serif"
+            font-weight="800"
+            font-size="8.5"
+            fill="#00f5ff"
+            text-anchor="middle"
+            letter-spacing="2.2">ELECTRÓNICA</text
+          >
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-12px) rotate(1.5deg);
+    }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+</style>
+
+<script>
+  import { getBusinessStatus } from "../lib/businessHours";
+
+  function updateDesktopHeroStatus() {
+    const { isOpen, badgeText } = getBusinessStatus();
+    const badge = document.getElementById("hero-status-badge-desktop");
+    const ping = document.getElementById("hero-status-ping-desktop");
+    const dot = document.getElementById("hero-status-dot-desktop");
+    const labelEl = document.getElementById("hero-status-label-desktop");
+    const timeEl = document.getElementById("hero-status-time-desktop");
+
+    if (badge) {
+      if (isOpen) {
+        badge.className =
+          "hero-animate hero-animate-1 flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/20 bg-blue-500/10 backdrop-blur-sm mb-8 select-none transition-colors duration-300";
+      } else {
+        badge.className =
+          "hero-animate hero-animate-1 flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/20 bg-slate-500/5 backdrop-blur-sm mb-8 select-none transition-colors duration-300";
+      }
+    }
+
+    if (ping) {
+      ping.className = `animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isOpen ? "bg-emerald-400" : "bg-rose-400"}`;
+    }
+
+    if (dot) {
+      dot.className = `relative inline-flex rounded-full h-2 w-2 ${isOpen ? "bg-emerald-500" : "bg-rose-500"}`;
+    }
+
+    if (labelEl) {
+      labelEl.textContent = badgeText.split(" — ")[0];
+      labelEl.className = isOpen ? "text-emerald-400" : "text-rose-400";
+    }
+
+    if (timeEl) {
+      timeEl.textContent = badgeText.split(" — ")[1];
+      timeEl.className = `text-xs font-mono font-semibold tracking-wide ${isOpen ? "text-blue-200" : "text-slate-400"}`;
+    }
+  }
+
+  updateDesktopHeroStatus();
+  setInterval(updateDesktopHeroStatus, 60000);
+</script>

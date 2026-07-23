@@ -28,8 +28,7 @@ const features = [
 ---
 
 <section
-  id="experiencia"
-  class="relative pt-24 pb-12 sm:pt-24 sm:pb-16 overflow-hidden dark:bg-[#0A1122] bg-[#f4f6f9]/50 transition-colors duration-300 scroll-mt-28"
+  class="relative pt-16 pb-16 sm:pt-24 sm:pb-20 overflow-hidden dark:bg-[#0A1122] bg-[#f4f6f9]/50 transition-colors duration-300"
 >
   {/* Subtly animated light blob on the right & center */}
   <div
@@ -42,9 +41,13 @@ const features = [
   </div>
 
   <div class="mx-auto max-w-[90rem] px-6 sm:px-8 lg:px-20 relative z-10">
+    <div id="experiencia" class="scroll-mt-20 sm:scroll-mt-24"></div>
     <div class="grid lg:grid-cols-12 gap-16 items-stretch">
       {/* Left Column: Title & Stats Grid (5 cols) */}
-      <div data-reveal class="lg:col-span-5 flex flex-col justify-between lg:h-full space-y-8 lg:space-y-0">
+      <div
+        data-reveal
+        class="lg:col-span-5 flex flex-col justify-between lg:h-full space-y-8 lg:space-y-0"
+      >
         <div>
           <span
             class="text-xs font-bold text-blue-500 dark:text-blue-400 uppercase tracking-[0.2em] mb-4 block"
@@ -56,18 +59,24 @@ const features = [
             Un servicio técnico de confianza en tu zona
           </h2>
           <p class="mt-6 text-base text-[hsl(var(--fg-muted))] leading-relaxed">
-            Soy técnico y trabajo de forma independiente en el mantenimiento y reparación
-            de dispositivos. Aprendí el oficio reparando equipo por equipo, y hoy sigo
-            eligiendo hacerlo así: con tiempo real para diagnosticar bien antes de dar
-            un presupuesto.
+            Soy técnico y trabajo de forma independiente en el mantenimiento y
+            reparación de dispositivos. Aprendí el oficio reparando equipo por
+            equipo, y hoy sigo eligiendo hacerlo así: con tiempo real para
+            diagnosticar bien antes de dar un presupuesto.
           </p>
         </div>
 
         {/* Stats Grid */}
-        <div data-stagger class="grid grid-cols-2 gap-4 sm:gap-6 w-full pt-4 lg:pt-0">
+        <div
+          data-stagger
+          class="grid grid-cols-2 gap-4 sm:gap-6 w-full pt-4 lg:pt-0"
+        >
           {
             stats.map((stat) => (
-              <div data-reveal class="card-hover liquid-glass rounded-2xl p-4 sm:p-6 w-full text-center sm:text-left">
+              <div
+                data-reveal
+                class="card-hover liquid-glass rounded-2xl p-4 sm:p-6 w-full text-center sm:text-left"
+              >
                 <div class="text-2xl sm:text-3xl font-bold tracking-tight text-[hsl(var(--fg))] font-headline">
                   {stat.value}
                 </div>
