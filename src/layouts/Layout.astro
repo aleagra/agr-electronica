@@ -326,11 +326,11 @@ const siteUrl = "https://agr-electronica.vercel.app";
     {/* 2. CONTENIDO SCROLLEABLE — el scroll real ocurre aquí, no en body */}
     <div
       id="page-scroll"
-      class="absolute inset-0 z-10 overflow-y-auto overflow-x-hidden flex flex-col"
+      class="absolute inset-0 z-10 overflow-y-auto overflow-x-hidden"
       style="-webkit-overflow-scrolling: touch;"
     >
       <Header />
-      <main class="relative flex-1 w-full flex flex-col">
+      <main class="relative w-full">
         <slot />
       </main>
       <Footer />
