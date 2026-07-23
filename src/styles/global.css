@@ -62,6 +62,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Previene el zoom/overscroll horizontal en iOS que afecta al fondo fijo */
+  overscroll-behavior-x: none;
 }
 
 .accent-word {
@@ -683,7 +685,6 @@ html.dark .header-scrolled#main-header {
 .animate-grid-breathe {
   animation: grid-breathe 6s ease-in-out infinite;
   will-change: opacity;
-  contain: paint;
 }
 
 @keyframes data-flow {
@@ -696,7 +697,6 @@ html.dark .header-scrolled#main-header {
   stroke-linecap: square;
   stroke-linejoin: miter;
   opacity: 0.6;
-  will-change: stroke-dashoffset;
 }
 
 .stream-cyan {
